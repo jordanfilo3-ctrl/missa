@@ -1,0 +1,408 @@
+Python 3.13.12 (tags/v3.13.12:1cbe481, Feb  3 2026, 18:22:25) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import streamlit as st
+>>>
+>>> st.set_page_config(page_title="Cifras Missa Pro", page_icon="")
+2026-03-05 19:16:16.373 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # --- BANCO DE DADOS DE MÚSICAS ---
+>>> # Você pode adicionar quantas quiser aqui seguindo o padrão
+>>> repertorio = [
+...     {
+...             "titulo": "Alegres Vamos (Entrada)",
+...                     "tom": "G",
+...                             "cifra": "[G]          [C]           [D]\nAlegres vamos à casa do Pai\n[G]          [Em\]          [Am]    [D]\nCantar louvores ao Senhor Jesus"
+...                                 },
+...                                     {
+...                                             "titulo": "Cordeiro de Deus",
+...                                                     "tom": "Am",
+...                                                             "cifra": "[Am]        [Dm]       [G]       [C]\nCordeir\o de Deus que tirais o pecado do mundo"
+...                                                                 },
+...                                                                     {
+...                                                                             "titulo": "Nossa Oferta (Ofertório)",
+...                                                                                     "tom": "D",
+...                                                                                             "cifra": "[D]          \[A]          [Bm]\nNesta mesa da irmandade\n[G]          [D]          [A]\nNossa vida colocar"
+...                                                                                                 }
+...                                                                                                 ]
+>>>
+>>> # --- FUNÇÃO DE TRANSPOSIÇÃO (Simplificada) ---
+>>> notas = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+>>>
+>>> def transpor_cifra(texto, semitons):
+...         if semitons == 0: return texto
+...             resultado = texto
+...                 for nota in reversed(notas): # Substitui as notas
+...                                 # Lógica simplificada: aqui poderíamos usar RegEx para maior precisão
+...                                                 pass
+...                                                     return texto # Por enquanto retorna o original, podemos evoluir\ essa lógica!
+...
+  File "<python-input-11>", line 3
+    resultado = texto
+IndentationError: unexpected indent
+>>> # --- INTERFACE ---
+>>> st.title(" Cifras de Missa v1.0")
+2026-03-05 19:16:35.263 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:35.746
+  Warning: to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run  [ARGUMENTS]
+2026-03-05 19:16:35.747 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:35.749 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # Busca rápida
+>>> busca = st.text_input(" Buscar música pelo título...")
+2026-03-05 19:16:36.351 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.352 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.353 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.356 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.357 Session state does not function when running a script without `streamlit run`
+2026-03-05 19:16:36.358 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.360 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:36.361 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # Filtrar músicas
+>>> musicas_filtradas = [m for m in repertorio if busca.lower() in m["titulo"].lower()]
+>>>
+>>> if musicas_filtradas:
+...             escolha = st.selectbox("Selecione a música:", [m["titulo"] for m in musicas_filtradas])
+...
+2026-03-05 19:16:37.885 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.886 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.888 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.889 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.890 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.891 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:37.892 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>     # Achar os dados da música escolhida
+>>>     dados = next(m for m in repertorio if m["titulo"] == escolha)
+  File "<python-input-23>", line 1
+    dados = next(m for m in repertorio if m["titulo"] == escolha)
+IndentationError: unexpected indent
+>>>
+>>>     st.divider()
+  File "<python-input-25>", line 1
+    st.divider()
+IndentationError: unexpected indent
+>>>
+>>>     col1, col2 = st.columns([3, 1])
+  File "<python-input-27>", line 1
+    col1, col2 = st.columns([3, 1])
+IndentationError: unexpected indent
+>>>     with col1:
+  File "<python-input-28>", line 1
+    with col1:
+IndentationError: unexpected indent
+>>>         st.subheader(dados["titulo"])
+  File "<python-input-29>", line 1
+    st.subheader(dados["titulo"])
+IndentationError: unexpected indent
+>>>     with col2:
+  File "<python-input-30>", line 1
+    with col2:
+IndentationError: unexpected indent
+>>>         st.button(f"Tom: {dados['tom']}")
+  File "<python-input-31>", line 1
+    st.button(f"Tom: {dados['tom']}")
+IndentationError: unexpected indent
+>>>
+>>>     # Exibição da Cifra
+>>>     st.code(dados["cifra"], language="markdown")
+  File "<python-input-34>", line 1
+    st.code(dados["cifra"], language="markdown")
+IndentationError: unexpected indent
+>>>
+>>> else:
+  File "<python-input-36>", line 1
+    else:
+    ^^^^
+SyntaxError: invalid syntax
+>>>     st.warning("Nenhuma música encontrada com esse nome.")
+  File "<python-input-37>", line 1
+    st.warning("Nenhuma música encontrada com esse nome.")
+IndentationError: unexpected indent
+>>>
+>>> # --- BARRA LATERAL ---
+>>> st.sidebar.header("Configurações")
+2026-03-05 19:16:40.005 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:40.007 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:16:40.011 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator(_root_container=1, _parent=DeltaGenerator())
+>>> st.sidebar.write("Use o Wi-Fi da Paróquia para conectar o celular!")gere uma lista com as 20 músicasst.markdown("<h\2 style='text-align: center;'>Letra e Cifra</h2>", unsafe_allow_html=True)# --- BARRA LATERAL (SIDEBAR) PARA CONTROLES \---
+  File "<python-input-41>", line 1
+    st.sidebar.write("Use o Wi-Fi da Paróquia para conectar o celular!")gere uma lista com as 20 músicasst.markdown("<h2 style='text-align: center;'>Letra e Cifra</h2>", unsafe_allow_html=True)# --- BARRA LATERAL (SIDEBAR) PARA CONTROLES ---
+                                                                        ^^^^
+SyntaxError: invalid syntax
+>>> st.sidebar.header(" Ajustes de Visualização")
+2026-03-05 19:19:14.336 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:14.337 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:14.339 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator(_root_container=1, _parent=DeltaGenerator())
+>>>
+>>> # Slider para escolher o tamanho da fonte
+>>> tamanho_fonte = st.sidebar.slider("Tamanho da Fonte", min_value=12, max_value=40, value=22)
+2026-03-05 19:19:15.405 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:15.407 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:15.409 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:15.411 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:15.411 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:15.413 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # Cor da fonte (opcional, mas ajuda na leitura)
+>>> cor_fonte = st.sidebar.color_picker("Cor da Cifra", "#00FFAA") # Um verde neon para destacar
+2026-03-05 19:19:16.467 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:16.468 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:16.469 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:16.470 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:16.471 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:16.472 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # --- APLICAÇÃO DO ESTILO DINÂMICO ---
+>>> # Esse bloco de HTML/CSS vai mudar o estilo do st.code de acordo com o slider
+>>> st.markdown(f"""
+...     <style>
+...         .stCodeBlock code {{
+...                 font-size: {tamanho_fonte}px !important;
+...                         line-height: 1.5 !important;
+...                                 color: {cor_fonte} !important;
+...                                         background-color: #1e1e1e !important;
+...                                                 }}
+...                                                     </style>
+...                                                         """, unsafe_allow_html=True)
+2026-03-05 19:19:18.555 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:18.555 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:19:18.557 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # --- EXIBIÇÃO DA MÚSICA ---
+>>> # Quando você usar st.code, ele já vai seguir o tamanho escolhido acima
+>>> st.subheader(f" {dados['titulo']}")
+Traceback (most recent call last):
+  File "<python-input-56>", line 1, in <module>
+    st.subheader(f" {dados['titulo']}")
+                     ^^^^^
+NameError: name 'dados' is not defined
+>>> st.code(dados['cifra'], language="markdown")import streamlit as st
+  File "<python-input-57>", line 1
+    st.code(dados['cifra'], language="markdown")import streamlit as st
+                                                ^^^^^^
+SyntaxError: invalid syntax
+>>> import re
+>>>
+>>> st.set_page_config(page_title="Cifras Missa Pro", page_icon="")
+2026-03-05 19:20:07.626 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # --- ESCALA MUSICAL ---
+>>> NOTAS = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+>>>
+>>> # --- FUNÇÃO DE TRANSPOSIÇÃO ---
+>>> def transpor_acorde(match, semitons):
+...         acorde_completo = match.group(1)
+...             # Extrai a nota principal (Ex: de F#m7, pega F#)
+...                 nota_base = re.match(r"([A-G][#b]?)", acorde_completo).group(1)
+...                     resto = acorde_completo[len(nota_base):]
+...
+  File "<python-input-66>", line 4
+    nota_base = re.match(r"([A-G][#b]?)", acorde_completo).group(1)
+IndentationError: unexpected indent
+>>>     # Converte b para # para facilitar a busca
+>>>     if nota_base.endswith('b'):
+  File "<python-input-68>", line 1
+    if nota_base.endswith('b'):
+IndentationError: unexpected indent
+>>>         conversao = {"Db":"C#", "Eb":"D#", "Gb":"F#", "Ab":"G#", "Bb":"A#"}
+  File "<python-input-69>", line 1
+    conversao = {"Db":"C#", "Eb":"D#", "Gb":"F#", "Ab":"G#", "Bb":"A#"}
+IndentationError: unexpected indent
+>>>         nota_base = conversao.get(nota_base, nota_base)
+  File "<python-input-70>", line 1
+    nota_base = conversao.get(nota_base, nota_base)
+IndentationError: unexpected indent
+>>>
+>>>     if nota_base in NOTAS:
+  File "<python-input-72>", line 1
+    if nota_base in NOTAS:
+IndentationError: unexpected indent
+>>>         idx_atual = NOTAS.index(nota_base)
+  File "<python-input-73>", line 1
+    idx_atual = NOTAS.index(nota_base)
+IndentationError: unexpected indent
+>>>         novo_idx = (idx_atual + semitons) % 12
+  File "<python-input-74>", line 1
+    novo_idx = (idx_atual + semitons) % 12
+IndentationError: unexpected indent
+>>>         return f"[{NOTAS[novo_idx]}{resto}]"
+  File "<python-input-75>", line 1
+    return f"[{NOTAS[novo_idx]}{resto}]"
+IndentationError: unexpected indent
+>>>     return f"[{acorde_completo}]"
+  File "<python-input-76>", line 1
+    return f"[{acorde_completo}]"
+IndentationError: unexpected indent
+>>>
+>>> def processar_cifra(texto, semitons):
+...             if semitons == 0: return texto
+...                 # Procura tudo que está entre [ ]
+...                     return re.sub(r"\[(.*?)\]", lambda m: transpor_acorde(m, semitons), texto)
+...
+  File "<python-input-78>", line 4
+    return re.sub(r"\[(.*?)\]", lambda m: transpor_acorde(m, semitons), texto)
+IndentationError: unexpected indent
+>>> # --- REPERTÓRIO (Exemplo) ---
+>>> musica = {
+...     "titulo": "Alegres Vamos",
+...         "tom_original": "G",
+...             "cifra": "[G]          [C]           [D]\nAlegres vamos à casa do Pai\n[G]          [Em]          [Am] \   [D]\nCantar louvores ao Senhor Jesus"
+...             }
+>>>
+>>> # --- INTERFACE ---
+>>> st.title(" Transpositor de Cifras")
+2026-03-05 19:20:25.766 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:25.766 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:25.767 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # Sidebar para controles
+>>> st.sidebar.header(" Ajustes")
+2026-03-05 19:20:26.166 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.168 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.168 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator(_root_container=1, _parent=DeltaGenerator())
+>>> transposicao = st.sidebar.number_input("Transpor (Semitons)", min_value=-12, max_value=12, value=0)
+2026-03-05 19:20:26.880 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.880 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.881 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.882 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.882 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.883 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:26.883 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>> tamanho = st.sidebar.slider("Tamanho da Letra", 16, 40, 22)
+2026-03-05 19:20:27.194 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:27.195 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:27.195 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:27.196 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:27.197 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:27.197 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # Estilo visual
+>>> st.markdown(f"<style>.stCodeBlock code {{ font-size: {tamanho}px !important; color: #00FFCC !important; }}</style>"\, unsafe_allow_html=True)
+2026-03-05 19:20:28.037 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.037 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.038 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # Cálculo do Tom Atual
+>>> idx_original = NOTAS.index(musica["tom_original"])
+>>> novo_tom = NOTAS[(idx_original + transposicao) % 12]
+>>>
+>>> st.subheader(f" {musica['titulo']}")
+2026-03-05 19:20:28.635 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.635 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.636 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>> st.info(f"Tom Original: **{musica['tom_original']}** | Tom Atual: **{novo_tom}**")
+2026-03-05 19:20:28.817 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.818 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:20:28.818 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # Exibe a cifraimport streamlit as st
+>>> import re
+>>>
+>>> st.set_page_config(page_title="Cifras Missa Pro", page_icon="")
+2026-03-05 19:20:48.842 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>>
+>>> # --- ESCALA MUSICAL ---
+>>> NOTAS = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+>>>
+>>> # --- FUNÇÃO DE TRANSPOSIÇÃO ---
+>>> def transpor_acorde(match, semitons):
+...         acorde_completo = match.group(1)
+...             # Extrai a nota principal (Ex: de F#m7, pega F#)
+...                 nota_match = re.match(r"([A-G][#b]?)", acorde_completo)
+...                     if not nota_match: return f"[{acorde_completo}]"
+...
+  File "<python-input-109>", line 4
+    nota_match = re.match(r"([A-G][#b]?)", acorde_completo)
+IndentationError: unexpected indent
+>>>     nota_base = nota_match.group(1)
+  File "<python-input-110>", line 1
+    nota_base = nota_match.group(1)
+IndentationError: unexpected indent
+>>>     resto = acorde_completo[len(nota_base):]
+  File "<python-input-111>", line 1
+    resto = acorde_completo[len(nota_base):]
+IndentationError: unexpected indent
+>>>
+>>>     # Converte b para #
+>>>     conversao_b = {"Db":"C#", "Eb":"D#", "Gb":"F#", "Ab":"G#", "Bb":"A#"}
+  File "<python-input-114>", line 1
+    conversao_b = {"Db":"C#", "Eb":"D#", "Gb":"F#", "Ab":"G#", "Bb":"A#"}
+IndentationError: unexpected indent
+>>>     nota_base = conversao_b.get(nota_base, nota_base)
+  File "<python-input-115>", line 1
+    nota_base = conversao_b.get(nota_base, nota_base)
+IndentationError: unexpected indent
+>>>
+>>>     if nota_base in NOTAS:
+  File "<python-input-117>", line 1
+    if nota_base in NOTAS:
+IndentationError: unexpected indent
+>>>         idx_atual = NOTAS.index(nota_base)
+  File "<python-input-118>", line 1
+    idx_atual = NOTAS.index(nota_base)
+IndentationError: unexpected indent
+>>>         novo_idx = (idx_atual + semitons) % 12
+  File "<python-input-119>", line 1
+    novo_idx = (idx_atual + semitons) % 12
+IndentationError: unexpected indent
+>>>         return f"[{NOTAS[novo_idx]}{resto}]"
+  File "<python-input-120>", line 1
+    return f"[{NOTAS[novo_idx]}{resto}]"
+IndentationError: unexpected indent
+>>>     return f"[{acorde_completo}]"
+  File "<python-input-121>", line 1
+    return f"[{acorde_completo}]"
+IndentationError: unexpected indent
+>>>
+>>> def processar_cifra(texto, semitons):
+...             return re.sub(r"\[(.*?)\]", lambda m: transpor_acorde(m, semitons), texto)
+...
+>>> # --- MÚSICA ATUAL (Exemplo) ---
+>>> if 'semitons' not in st.session_state:
+...                 st.session_state.semitons = 0
+...
+2026-03-05 19:21:04.104 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:04.104 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:04.105 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>> musica = {
+...     "titulo": "Alegres Vamos",
+...         "tom_original": "G",
+...             "cifra": "[G]          [C]           [D]\nAlegres vamos à casa do Pai\n[G]          [Em]          [Am] \   [D]\nCantar louvores ao Senhor Jesus"
+...             }
+>>>
+>>> # --- INTERFACE ---
+>>> st.title(" Cifras Pro - Modo Missa")
+2026-03-05 19:21:06.156 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:06.157 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:06.157 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator()
+>>>
+>>> # --- BARRA LATERAL: CONTROLES DE TOM ---
+>>> st.sidebar.header(" Mudar Tom")
+2026-03-05 19:21:06.738 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:06.739 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:06.739 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+DeltaGenerator(_root_container=1, _parent=DeltaGenerator())
+>>>
+>>> # Botões Rápidos
+>>> col1, col2 = st.sidebar.columns(2)
+2026-03-05 19:21:07.018 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:07.018 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-03-05 19:21:07.019 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+>>> if col1.button("Dó (C)"): st.session_state.semitons = -7 # De G para C
+... if col2.button("Ré (D)"): st.session_state.semitons = -5 # De G para D
+... if col1.button("Mi (E)"): st.session_state.semitons = -3 # De G para E
+... if col2.button("Fá (F)"): st.session_state.semitons = -2 # De G para F
+... i
