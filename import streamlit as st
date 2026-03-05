@@ -405,4 +405,5 @@ DeltaGenerator(_root_container=1, _parent=DeltaGenerator())
 ... if col2.button("Ré (D)"): st.session_state.semitons = -5 # De G para D
 ... if col1.button("Mi (E)"): st.session_state.semitons = -3 # De G para E
 ... if col2.button("Fá (F)"): st.session_state.semitons = -2 # De G para F
+
 ... i
