@@ -1,8 +1,15 @@
 import streamlit as st
 
-st.title("🎸 Minhas Cifra da Missa")
+st.set_page_config(page_title="Cifras da Missa", page_icon="🎸")
 
-st.header("Música de Entrada: Nome da Música")
+st.title("🎸 Cifras da Missa")
+
+st.markdown("""
+---
+### 🎶 Entrada
+**Música:** Nome da Música
+""")
+
 st.code("""
 G           D
 Vinde, cristãos, 
@@ -10,8 +17,4 @@ Em          C
 vinde adorar...
 """, language="text")
 
-st.header("Aclamação")
-st.code("""
-A           E
-Aleluia, aleluia!
-""", language="text")
+st.info("Dica: Use o menu lateral para navegar entre as partes da missa.")
